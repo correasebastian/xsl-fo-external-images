@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<fop version="1.0">
+    <font-base>/home/sandesh/Discovery/src/try2/src/main/resources/pdf/voucher/chemmart_free_voucher/</font-base>
+    <prefer-renderer>true</prefer-renderer>
+    <renderers>
+        <renderer mime="application/pdf">
+            <fonts>
+                <font kerning="yes" embed-url="verdana.ttf">
+                    <font-triplet name="verdana" style="normal" weight="normal"/>
+                </font>
+                <font kerning="yes" embed-url="verdanab.ttf">
+                    <font-triplet name="verdana" style="normal" weight="bold"/>
+                </font>
+                <font kerning="yes" embed-url="arial.ttf">
+                    <font-triplet name="arial" style="normal" weight="normal"/>
+                </font>
+                <font kerning="yes" embed-url="arialbd.ttf">
+                    <font-triplet name="arial_Bold" style="normal" weight="normal"/>
+                </font>
+                <font kerning="yes" embed-url="OfficinaSansITCPro-Bold.ttf">
+                    <font-triplet name="OfficinaSansITCPro-Bold" style="normal" weight="normal"/>
+                </font>
+                <font kerning="yes" embed-url="OfficinaSansITCPro-Book.ttf">
+                    <font-triplet name="OfficinaSansITCPro-Book" style="normal" weight="normal"/>
+                </font>
+                <font kerning="yes" embed-url="OfficinaSanITCMedium.ttf">
+                    <font-triplet name="OfficinaSanITCMedium" style="normal" weight="normal"/>
+                </font>
+                <font kerning="yes" embed-url="wingding.ttf">
+                    <font-triplet name="wingding" style="normal" weight="normal"/>
+                </font>
+            </fonts>
+        </renderer>
+    </renderers>
+</fop>
+
