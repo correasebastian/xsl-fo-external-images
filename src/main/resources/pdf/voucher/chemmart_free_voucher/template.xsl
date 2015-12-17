@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xsl:stylesheet version="2.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-                xmlns:fo="http://www.w3.org/1999/XSL/Format">
+<xsl:stylesheet version="2.0"
+                xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+                xmlns:fo="http://www.w3.org/1999/XSL/Format"
+                xmlns:axf="http://www.antennahouse.com/names/XSL/Extensions">
 
     <xsl:output version="1.0" method="xml" encoding="UTF-8" indent="no"/>
 
@@ -11,7 +13,7 @@
     <xsl:param name="amount"/>
     <xsl:param name="validUntil"/>
     <xsl:param name="voucherNo"/>
-    <xsl:param name="path" select="'file:/home/sandesh/Discovery/src/try2/src/main/resources'"/>
+    <xsl:param name="path" select="'file://R:\Discovery\src\XSLFO-XSLT\src\main\resources'"/>
 
     <xsl:template match="/">
         <fo:root>
@@ -38,7 +40,7 @@
                 <fo:static-content flow-name="xsl-region-before">
                     <fo:block-container height="2.2cm" background-color="#c1d82f">
                         <fo:block text-align="right" margin-right="0.5cm" margin-top="0.5cm">
-                            <fo:external-graphic src="{$path}/images/VitalityLogo_Process_Reverse.png" content-height="scale-to-fit" content-width="5cm" scaling="non-uniform" />
+                            <fo:external-graphic src="{$path}\images\VitalityLogo_Process_Reverse.png" content-height="scale-to-fit" content-width="5cm" scaling="non-uniform" />
                         </fo:block>
                     </fo:block-container>
                 </fo:static-content>
@@ -49,9 +51,14 @@
                 </fo:static-content>
 
                 <fo:static-content flow-name="xsl-region-start">
-                    <fo:block-container border-color="#c1d82f" border-style="dashed" border-width="1pt" height="6.3cm"
+                    <fo:block-container border-color="#c1d82f" border-style="dashed" border-width="1pt" height="6.3cm" background-color="white"
                                         width="19.8cm" left="0.1cm" top="2.2cm" padding="1pt" position="absolute">
                         <fo:block/>
+                    </fo:block-container>
+                    <fo:block-container writing-mode="rl-tb" reference-orientation="90" inline-progression-dimension="20pt" height="30pt" width="30pt" left="19.2cm" top="5.5cm" position="absolute">
+                           <fo:block  text-align="end" text-align-last="end" color="#c1d82f" font-family="Wingdings"  font-size="18pt">
+                                &#35;
+                           </fo:block>
                     </fo:block-container>
                 </fo:static-content>
 
@@ -63,7 +70,7 @@
                             <fo:table-body>
                                 <fo:table-row>
                                     <fo:table-cell>
-                                        <fo:block><fo:external-graphic src="{$path}/images/CHEMMARK_primary_cmyk.png" content-height="scale-to-fit" content-width="3cm" scaling="non-uniform" /></fo:block>
+                                        <fo:block><fo:external-graphic src="{$path}\images\CHEMMARK_primary_cmyk.png" content-height="scale-to-fit" content-width="3cm" scaling="non-uniform" /></fo:block>
                                       </fo:table-cell>
                                     <fo:table-cell>
                                         <fo:block color="#c1d82f"  margin-left="0.3cm" font-family="OfficinaSansITCPro-Bold"  font-size="24pt">Free AIA Vitality Health Check</fo:block>
@@ -101,6 +108,7 @@
                                             can be used once only and is non-transferable and non-refundable. The voucher cannot be redeemed for cash or credit. The voucher will not be replaced or refunded if lost, stolen or damaged.
                                             The AIA Vitality Health Check will include the following tests: blood pressure, cholesterol, blood glucose and body mass index (BMI). AIA Vitality Members can earn up to 6,000 points for
                                             completing the AIA Vitality Health Check.</fo:block>
+
                                     </fo:table-cell>
                                 </fo:table-row>
                             </fo:table-body>
