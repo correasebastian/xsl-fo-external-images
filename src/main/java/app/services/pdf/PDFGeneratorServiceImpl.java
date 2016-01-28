@@ -124,7 +124,7 @@ public class PDFGeneratorServiceImpl implements PDFGeneratorService {
                 refPath = href;
             }
             InputStream stream;
-            if(refPath.startsWith("file:")) {
+            if (refPath.startsWith("file:")) {
                 try {
                     stream = new FileInputStream(refPath.substring(5));
                 } catch (FileNotFoundException e) {

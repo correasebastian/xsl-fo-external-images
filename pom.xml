@@ -12,6 +12,7 @@
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+      <!--<project.build.scriptSourceDirectory>./src/main/scripts</project.build.scriptSourceDirectory>-->
       <springVersion>3.1.2.RELEASE</springVersion>
       <slf4j-version>1.7.7</slf4j-version>
       <logback-version>1.1.3</logback-version>
@@ -52,6 +53,10 @@
                   <groupId>org.apache.avalon.framework</groupId>
                   <artifactId>avalon-framework-impl</artifactId>
               </exclusion>
+              <exclusion>
+                  <groupId>xalan</groupId>
+                  <artifactId>xalan</artifactId>
+              </exclusion>
           </exclusions>
       </dependency>
       <dependency>
@@ -65,6 +70,51 @@
           <version>4.3.1</version>
       </dependency>
 
+      <dependency>
+          <groupId>net.sf.barcode4j</groupId>
+          <artifactId>barcode4j-fop-ext</artifactId>
+          <version>2.0</version>
+          <exclusions>
+              <exclusion>
+                  <groupId>net.sf.barcode4j</groupId>
+                  <artifactId>barcode4j</artifactId>
+              </exclusion>
+              <exclusion>
+                  <groupId>org.apache.xmlgraphics</groupId>
+                  <artifactId>fop</artifactId>
+              </exclusion>
+          </exclusions>
+      </dependency>
+
+      <dependency>
+          <groupId>net.sf.barcode4j</groupId>
+          <artifactId>barcode4j</artifactId>
+          <version>2.1</version>
+          <exclusions>
+              <exclusion>
+                  <groupId>org.apache.ant</groupId>
+                  <artifactId>ant</artifactId>
+              </exclusion>
+              <exclusion>
+                  <groupId>org.apache.avalon.framework</groupId>
+                  <artifactId>avalon-framework-impl</artifactId>
+              </exclusion>
+              <exclusion>
+                  <groupId>commons-lang</groupId>
+                  <artifactId>commons-lang</artifactId>
+              </exclusion>
+              <exclusion>
+                  <groupId>commons-logging</groupId>
+                  <artifactId>commons-logging</artifactId>
+              </exclusion>
+          </exclusions>
+      </dependency>
+
+      <dependency>
+          <groupId>xalan</groupId>
+          <artifactId>xalan</artifactId>
+          <version>2.7.1</version>
+      </dependency>
 
       <!-- Logging -->
       <dependency>
@@ -89,28 +139,38 @@
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-shade-plugin</artifactId>
-                <version>2.1</version>
-                <executions>
-                    <execution>
-                        <phase>package</phase>
-                        <goals>
-                            <goal>shade</goal>
-                        </goals>
-                        <configuration>
-                            <transformers>
-                                <transformer
-                                        implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
-                                    <mainClass>com.quick.App</mainClass>
-                                </transformer>
-                                <transformer
-                                        implementation="org.apache.maven.plugins.shade.resource.AppendingTransformer">
-                                    <resource>META-INF/services/org.apache.xmlgraphics.image.loader.spi.Ima‌​gePreloader</resource>
-                                </transformer>
-                            </transformers>
-                        </configuration>
-                    </execution>
-                </executions>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>2.6</version>
+                <configuration>
+                    <!-- Configures the created archive -->
+                    <archive>
+                        <!-- Configures the content of the created manifest -->
+                        <manifest>
+                            <!-- Adds the classpath to the created manifest -->
+                            <addClasspath>true</addClasspath>
+                            <!--
+                                Specifies that all dependencies of our application are found
+                                from the lib directory.
+                            -->
+                            <classpathPrefix>lib/</classpathPrefix>
+                            <!-- Configures the main class of the application -->
+                            <mainClass>com.quick.App</mainClass>
+                        </manifest>
+                    </archive>
+                </configuration>
+            </plugin>
+
+            <!-- create distributable -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-assembly-plugin</artifactId>
+                <version>2.6</version>
+                <configuration>
+                    <!-- Configures the used assembly descriptor -->
+                    <descriptors>
+                        <descriptor>src/main/assembly/assembly.xml</descriptor>
+                    </descriptors>
+                </configuration>
             </plugin>
         </plugins>
     </build>

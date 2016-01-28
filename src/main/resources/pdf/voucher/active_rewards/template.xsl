@@ -6,7 +6,7 @@
 
     <xsl:param name="barcode"/>
     <xsl:param name="expiryDate"/>
-    <xsl:param name="memberNo"/>
+    <!--<xsl:param name="memberNo"/>-->
     <xsl:param name="verificationCode"/>
 
     <xsl:template match="/">
@@ -90,7 +90,7 @@
 
                             <fo:block-container position="absolute"
                                                 top="460pt"  >
-                                <fo:block text-align="center" font-size="35pt" font-family="knockout" color="white">UNIQUE CODE <xsl:value-of select="$memberNo"/></fo:block>
+                                <!--<fo:block text-align="center" font-size="35pt" font-family="knockout" color="white">UNIQUE CODE <xsl:value-of select="$memberNo"/></fo:block>-->
                                 <fo:block text-align="center" font-size="27pt" font-family="knockout" color="white">VERIFICATION CODE - <xsl:value-of select="$verificationCode"/></fo:block>
                             </fo:block-container>
                         </fo:block>
@@ -119,11 +119,11 @@
                         <fo:block>
                             <fo:block-container position="absolute"
                                                 top="85pt" left="30pt" right="30pt">
-                                <fo:block text-align="left" font-size="11pt" font-family="gotham"><fo:inline font-style="italic">Scan in store to redeem. Treat this voucher like cash. Lost or stolen vouchers will not be replaced or refunded.
+                                <fo:block text-align="left" font-size="11pt" font-family="gotham"><fo:inline>Scan in store to redeem. Treat this voucher like cash. Lost or stolen vouchers will not be replaced or refunded.
                                     Redeemable at any Boost Juice store in Australia, excluding Boost Mobeels. This voucher may be used in more than one transaction for cumulative purchases of up to the
                                     face-value of voucher. Not reloadable or redeemable for cash. By using this voucher, you agree to the terms and conditions.</fo:inline>
                                 </fo:block>
-                                <fo:block text-align="center" font-size="11pt" font-family="gotham"><fo:inline font-style="italic">EXPIRY DATE <xsl:value-of select="$expiryDate"/></fo:inline> </fo:block>
+                                <fo:block text-align="center" font-size="11pt" font-family="gotham"><fo:inline>EXPIRY DATE <xsl:value-of select="$expiryDate"/></fo:inline> </fo:block>
                             </fo:block-container>
                         </fo:block>
 
