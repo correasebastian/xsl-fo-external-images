@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xsl:stylesheet version="2.0"
                 xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-                xmlns:fo="http://www.w3.org/1999/XSL/Format"
-                xmlns:axf="http://www.antennahouse.com/names/XSL/Extensions">
+                xmlns:fo="http://www.w3.org/1999/XSL/Format">
 
     <xsl:output version="1.0" method="xml" encoding="UTF-8" indent="no"/>
 
@@ -13,7 +12,6 @@
     <xsl:param name="amount"/>
     <xsl:param name="validUntil"/>
     <xsl:param name="voucherNo"/>
-    <xsl:param name="path" select="'file://R:\Discovery\src\XSLFO-XSLT\src\main\resources'"/>
 
     <xsl:template match="/">
         <fo:root>
@@ -40,7 +38,7 @@
                 <fo:static-content flow-name="xsl-region-before">
                     <fo:block-container height="2.2cm" background-color="#c1d82f">
                         <fo:block text-align="right" margin-right="0.5cm" margin-top="0.5cm">
-                            <fo:external-graphic src="{$path}\images\VitalityLogo_Process_Reverse.png" content-height="scale-to-fit" content-width="5cm" scaling="non-uniform" />
+                            <fo:external-graphic src="/images/VitalityLogo_Process_Reverse.png" content-height="scale-to-fit" content-width="5cm" scaling="non-uniform" />
                         </fo:block>
                     </fo:block-container>
                 </fo:static-content>
@@ -70,7 +68,7 @@
                             <fo:table-body>
                                 <fo:table-row>
                                     <fo:table-cell>
-                                        <fo:block><fo:external-graphic src="{$path}\images\CHEMMARK_primary_cmyk.png" content-height="scale-to-fit" content-width="3cm" scaling="non-uniform" /></fo:block>
+                                        <fo:block><fo:external-graphic src="/images/CHEMMARK_primary_cmyk.png" content-height="scale-to-fit" content-width="3cm" scaling="non-uniform" /></fo:block>
                                       </fo:table-cell>
                                     <fo:table-cell>
                                         <fo:block color="#c1d82f"  margin-left="0.3cm" font-family="OfficinaSansITCPro-Bold"  font-size="24pt">Free AIA Vitality Health Check</fo:block>
