@@ -26,6 +26,26 @@ public class App {
 
     public static void main(String[] args) {
 
+        ///////////////////   Fitness First ///////////////////////////////
+        System.out.println("Hello World! for Fitness First Membership Authority Form");
+        Map<String, Object> paramsFF = new HashMap<String, Object>();
+        paramsFF.put("fullName", WordUtils.capitalizeFully("SANdESH GAndhi "));
+        paramsFF.put("membershipNo", "AIAAU123456789");
+        paramsFF.put("voucherNo", "328957");
+        paramsFF.put("validUntil", new SimpleDateFormat("dd/MM/yyyy").format(new Date()));
+
+        PDFGeneratorService pdfGeneratorServiceFF = new PDFGeneratorServiceImpl();
+        try {
+            byte[] pdfContentFF = pdfGeneratorServiceFF.generatePDF("voucher/fitness_first_form", paramsFF);
+            OutputStream outFF = new FileOutputStream("FFMAF-sample.pdf");
+            outFF.write(pdfContentFF);
+            outFF.close();
+        } catch (Exception e) {
+            LOG.error(e.getMessage());
+        }
+
+        //////////////////////////////////////////////////////////////////
+/*
         System.out.println("Hello World! for Chemmart voucher");
         Map<String, Object> params = new HashMap<String, Object>();
         params.put("fullName", WordUtils.capitalizeFully("SANdESH GAndhi "));
@@ -82,6 +102,7 @@ public class App {
         } catch (PDFGeneratorService.PDFGeneratorServiceException e) {
             LOG.error(e.getMessage());
         }
+        */
     }
 
     private static String getYearMonthFromIssueDate(String issueDateAsString) throws ParseException {
