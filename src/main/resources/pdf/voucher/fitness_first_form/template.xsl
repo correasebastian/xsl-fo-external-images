@@ -26,22 +26,38 @@
                             margin-left="5mm"
                             margin-right="5mm"/>
                     <fo:region-before extent="24mm" />  <!-- for background colour and logo as header-->
-                    <fo:region-after extent="5mm" />  <!-- for background colour -->
+                    <fo:region-after extent="24mm" />  <!-- for FF logo -->
                     <fo:region-start extent="0mm"/>
                 </fo:simple-page-master>
             </fo:layout-master-set>
 
             <fo:page-sequence master-reference="default-page" format="1">
                 <fo:static-content flow-name="xsl-region-before">
-                    <fo:block-container height="2.2cm" background-color="#c8102e">
-                        <fo:block text-align="right" margin-right="0.5cm" margin-top="0.5cm">
-                            <fo:external-graphic src="/images/VitalityLogo_Process_Reverse.png" content-height="scale-to-fit" content-width="5cm" scaling="non-uniform" />
+                    <fo:block-container height="22mm" background-color="#c8102e">
+                        <fo:block text-align="right" margin-right="5mm" margin-top="5mm">
+                            <fo:external-graphic src="/images/VitalityLogo_Process_Reverse.png" content-height="scale-to-fit" content-width="50mm" scaling="non-uniform" />
                         </fo:block>
                     </fo:block-container>
                 </fo:static-content>
                 <fo:static-content flow-name="xsl-region-after">
-                    <fo:block-container height="0.5cm" background-color="#c8102e">
-                        <fo:block/>
+                    <fo:block-container height="22mm">
+                         <fo:table>
+                            <fo:table-column />
+                            <fo:table-column />
+
+                            <fo:table-body>
+                                <fo:table-row >
+                                    <fo:table-cell display-align="after">
+                                        <fo:block font-family="OfficinaSansITCPro-Bold" font-size="14pt" color="#c8102e">aiavitality.com.au</fo:block>
+                                    </fo:table-cell>
+                                    <fo:table-cell>
+                                        <fo:block text-align="right">
+                                            <fo:external-graphic src="/images/FitnessFirst540x110.png" content-height="scale-to-fit" content-width="54mm" scaling="non-uniform" />
+                                        </fo:block>
+                                    </fo:table-cell>
+                                </fo:table-row>
+                            </fo:table-body>
+                        </fo:table>
                     </fo:block-container>
                 </fo:static-content>
 
