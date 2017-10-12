@@ -8,6 +8,7 @@ import org.apache.fop.events.LoggingEventListener;
 import org.apache.xmlgraphics.util.MimeConstants;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import sun.net.www.http.HttpCaptureInputStream;
 
 import javax.xml.transform.ErrorListener;
 import javax.xml.transform.OutputKeys;
@@ -19,13 +20,11 @@ import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.URIResolver;
 import javax.xml.transform.sax.SAXResult;
 import javax.xml.transform.stream.StreamSource;
-import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.InputStream;
+import java.io.*;
+import java.net.MalformedURLException;
 import java.util.HashMap;
 import java.util.Map;
+import java.net.URL;
 
 
 public class PDFGeneratorServiceImpl implements PDFGeneratorService {
@@ -123,14 +122,36 @@ public class PDFGeneratorServiceImpl implements PDFGeneratorService {
             if (base == null) {
                 refPath = href;
             }
-            InputStream stream;
+            InputStream stream = null;
             if (refPath.startsWith("file:")) {
                 try {
                     stream = new FileInputStream(refPath.substring(5));
+
+
                 } catch (FileNotFoundException e) {
                     throw new TransformerException(e);
                 }
-            } else {
+            } else if (refPath.startsWith("http")) {
+
+                try{
+                    URL url = new URL(refPath);
+
+                    try{
+                        stream = url.openStream();
+
+                }catch(IOException ex){
+                    System.out.println("IOException: " + url);
+                }
+
+
+                //more code goes here
+                }catch(MalformedURLException ex){
+                    System.out.println("The url is not well formed: " );
+                }
+
+
+            }
+            else {
                 stream = PDFGeneratorServiceImpl.class.getResourceAsStream(refPath);
             }
             if (stream == null) {

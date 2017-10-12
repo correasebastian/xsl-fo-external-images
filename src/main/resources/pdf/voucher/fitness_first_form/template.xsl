@@ -32,6 +32,7 @@
                                                  content-height="scale-to-fit" content-width="50mm"
                                                  scaling="non-uniform"/>
                         </fo:block>
+
                     </fo:block-container>
                 </fo:static-content>
                 <fo:static-content flow-name="xsl-region-after">
@@ -87,6 +88,26 @@
 
                 <fo:flow flow-name="xsl-region-body">
                     <fo:block-container>
+                        <fo:block text-align="center">
+                            <fo:external-graphic border="thin  solid blue" src="https://www.alt-soft.com/samples/img/banner_l.jpg" height="30mm" width="30mm" content-height="scale-to-fit" scaling="uniform" content-width="100%" />
+                        </fo:block>
+                        <fo:block text-align="center">
+                            <fo:external-graphic border="thin  solid yellow" src="url(https://www.alt-soft.com/samples/img/banner_l.jpg)" height="30mm" width="30mm" content-height="scale-to-fit" scaling="uniform" content-width="100%" />
+                        </fo:block>
+                        <fo:block text-align="center">
+                            <fo:external-graphic border="thin  solid red" src="url('https://www.alt-soft.com/samples/img/banner_l.jpg')" height="30mm" width="30mm" content-height="scale-to-fit" scaling="uniform" content-width="100%" />
+                        </fo:block>
+
+
+                        <fo:block text-align="center">
+                            <fo:external-graphic border="thin  solid blue" src="https://static.independent.co.uk/s3fs-public/styles/article_small/public/thumbnails/image/2017/07/25/13/neymar.jpg" height="30mm" width="30mm" content-height="scale-to-fit" scaling="uniform" content-width="100%" />
+                        </fo:block>
+                        <fo:block text-align="center">
+                            <fo:external-graphic border="thin  solid yellow" src="url(https://static.independent.co.uk/s3fs-public/styles/article_small/public/thumbnails/image/2017/07/25/13/neymar.jpg)" height="30mm" width="30mm" content-height="scale-to-fit" scaling="uniform" content-width="100%" />
+                        </fo:block>
+                        <fo:block text-align="center">
+                            <fo:external-graphic border="thin  solid red" src="url('https://static.independent.co.uk/s3fs-public/styles/article_small/public/thumbnails/image/2017/07/25/13/neymar.jpg')" height="30mm" width="30mm" content-height="scale-to-fit" scaling="uniform" content-width="100%" />
+                        </fo:block>
                         <fo:block color="#c8102e" font-family="OfficinaSansITCPro-Bold" font-size="24pt">AIA Vitality
                             and Fitness First
                         </fo:block>
